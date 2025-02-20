@@ -1,0 +1,23 @@
+@property --corner-radius {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 10px;
+}
+
+@property --normalized-radius {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0.5;
+}
+
+*[style*="continuous-rounding"] {
+  --corner-radius: var(--continuous-rounding, 10px);
+  --normalized-radius: calc(var(--corner-radius) / 100);
+  -webkit-mask-image: paint(continuous-corner);
+  mask-image: paint(continuous-corner);
+}
+
+.rectangle[style*="--continuous-rounding"] {
+  -webkit-mask-image: paint(continuous-corner);
+  mask-image: paint(continuous-corner);
+} 
