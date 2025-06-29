@@ -30,20 +30,20 @@
 <body>
 
 <!-- Uniform rounding (unchanged behaviour) -->
-<div class="box" style="--continuous-rounding: 150px;"></div>
+<div class="box" style="--continuous-rounding: 10px;"></div>
 
 <!-- Without the rounding on the bottom half -->
 <div class="box"
-     style="--continuous-rounding: 150px;
-            --continuous-rounding-bottom-right: 0px;
-            --continuous-rounding-bottom-left: 0px;"></div>
+     style="--continuous-rounding: 10rem;
+            --continuous-rounding-bottom-right: 0;
+            --continuous-rounding-bottom-left: 0;"></div>
 
 <!-- Four completely different corners -->
 <div class="box"
      style="--continuous-rounding-top-left: 10px;
-            --continuous-rounding-top-right: 50px;
+            --continuous-rounding-top-right: 50vw;
             --continuous-rounding-bottom-right: 100px;
-            --continuous-rounding-bottom-left: 200px;"></div>
+            --continuous-rounding-bottom-left: 150px;"></div>
 
 </body>
 </html>
