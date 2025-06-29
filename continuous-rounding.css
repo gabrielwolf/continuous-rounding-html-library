@@ -1,23 +1,23 @@
-@property --corner-radius {
-  syntax: '<length>';
-  inherits: true;
-  initial-value: 10px;
+/* Uniform property keeps its default for backwards-compatibility */
+@property --continuous-rounding {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 30px;
 }
 
-@property --normalized-radius {
-  syntax: '<number>';
-  inherits: true;
-  initial-value: 0.5;
-}
+/* Per-corner properties: “unset” means “use the uniform value”. */
+@property --continuous-rounding-top-left  { syntax: '<length>'; inherits: true; }
+@property --continuous-rounding-top-right { syntax: '<length>'; inherits: true; }
+@property --continuous-rounding-bottom-right { syntax: '<length>'; inherits: true; }
+@property --continuous-rounding-bottom-left  { syntax: '<length>'; inherits: true; }
 
-*[style*="continuous-rounding"] {
-  --corner-radius: var(--continuous-rounding, 10px);
-  --normalized-radius: calc(var(--corner-radius) / 100);
-  -webkit-mask-image: paint(continuous-corner);
-  mask-image: paint(continuous-corner);
+/* Mask attachment (unchanged) */
+*[style*="--continuous-rounding"] {
+    -webkit-mask-image: paint(continuous-corner);
+    mask-image: paint(continuous-corner);
 }
 
 .rectangle[style*="--continuous-rounding"] {
   -webkit-mask-image: paint(continuous-corner);
   mask-image: paint(continuous-corner);
-} 
+}

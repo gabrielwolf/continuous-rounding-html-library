@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous-Rounding per-Corner Demo</title>
+    <link rel="stylesheet" href="continuous-rounding.css">
+    <script>
+        if ('paintWorklet' in CSS) {
+            CSS.paintWorklet.addModule('continuous-corner.js');
+        }
+    </script>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem;
+            background: oklch(0.9791 0 0);
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, oklch(0.7474 0.2051 57), oklch(0.6647 0.3009 5.35));
+        }
+    </style>
+</head>
+<body>
+
+<!-- Uniform rounding (unchanged behaviour) -->
+<div class="box" style="--continuous-rounding: 150px;"></div>
+
+<!-- Without the rounding on the bottom half -->
+<div class="box"
+     style="--continuous-rounding: 150px;
+            --continuous-rounding-bottom-right: 0px;
+            --continuous-rounding-bottom-left: 0px;"></div>
+
+<!-- Four completely different corners -->
+<div class="box"
+     style="--continuous-rounding-top-left: 10px;
+            --continuous-rounding-top-right: 50px;
+            --continuous-rounding-bottom-right: 100px;
+            --continuous-rounding-bottom-left: 200px;"></div>
+
+</body>
+</html>
