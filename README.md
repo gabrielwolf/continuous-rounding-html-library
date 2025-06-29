@@ -41,8 +41,22 @@ Modern versions of Chrome, Edge, and Opera are supported.
 ## Example
 
 ```html
+
 <div class="my-box" style="--continuous-rounding: 75px">
     This box will have smooth continuous corners
+</div>
+
+<div class="my-box" style="--continuous-rounding: 75px;
+                           --continuous-rounding-bottom-left: 0;
+                           --continuous-rounding-bottom-right: 0;">
+    This box will have smooth continuous corners only on the top side
+</div>
+
+<div class="my-box" style="--continuous-rounding-top-left: 10px;
+                           --continuous-rounding-top-right: 50vw;
+                           --continuous-rounding-bottom-right: 100px;
+                           --continuous-rounding-bottom-left: 150px;">
+    This box will have complete custom smooth continuous corners</span>
 </div>
 ```
 
