@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Rounding Demo</title>
+    <link rel="stylesheet" href="continuous-rounding.css">
+    <script>
+        if ('paintWorklet' in CSS) {
+            CSS.paintWorklet.addModule('continuous-corner.js');
+        }
+    </script>
+    <style>
+        .rectangle {
+            width: 200px;
+            height: 200px;
+            background-color: #00baff;
+            margin: 20px;
+            position: relative;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .demo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 16px;
+            color: white;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .radius-value {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .heading {
+            text-align: center;
+            margin: 120px auto 80px;
+            font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: -0.03em;
+            max-width: 800px;
+            line-height: 1.1;
+            padding: 0 20px;
+        }
+
+        body {
+            background-color: #ffffff;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px 120px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<h1 class="heading">Continuous Corner Rounding</h1>
+<div class="container">
+    <div class="demo-item">
+        <div class="rectangle" style="border-radius: 50px">
+            <div class="label">
+                <span>200 × 200</span>
+                <span class="radius-value">Border Radius: 50px</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-item">
+        <div class="rectangle" style="--continuous-rounding:50px">
+            <div class="label">
+                <span>200 × 200</span>
+                <span class="radius-value">Continuous Rounding: 50px</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-item">
+        <div class="rectangle" style="--continuous-rounding:100px">
+            <div class="label">
+                <span>200 × 200</span>
+                <span class="radius-value">Continuous Rounding: 100px</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-item">
+        <div class="rectangle" style="--continuous-rounding:200px">
+            <div class="label">
+                <span>200 × 200</span>
+                <span class="radius-value">Continuous Rounding: 200px</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-item">
+        <div class="rectangle" style="--continuous-rounding: 10rem;
+                                      --continuous-rounding-bottom-right: 0;
+                                      --continuous-rounding-bottom-left: 0;">
+            <div class="label">
+                <span>200 × 200</span>
+                <span class="radius-value">omit corners</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-item">
+        <div class="rectangle" style="--continuous-rounding-top-left: 10px;
+                                      --continuous-rounding-top-right: 50vw;
+                                      --continuous-rounding-bottom-right: 100px;
+                                      --continuous-rounding-bottom-left: 150px;">
+            <div class="label">
+                <span>200 × 200</span>
+                <span class="radius-value">complete custom corners</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
