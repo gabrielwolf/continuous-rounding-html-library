@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Continuous Rounding Demo</title>
     <link rel="stylesheet" href="continuous-rounding.css">
-    <script>
-        if ('paintWorklet' in CSS) {
-            CSS.paintWorklet.addModule('continuous-corner.js');
-        }
-    </script>
+    <script type="module" src="continuous-corner.loader.js"></script>
     <style>
         .rectangle {
             width: 200px;
@@ -85,10 +81,25 @@
             padding: 0 40px 120px;
             box-sizing: border-box;
         }
+
+        .fallback-error-message {
+            margin-bottom: 2rem;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: red;
+        }
+
+        html.continuous-rounding--enabled .fallback-error-message {
+            display: none;
+        }
+
+        html.continuous-rounding--fallback .fallback-error-message {
+            display: block;
+        }
     </style>
 </head>
 <body>
 <h1 class="heading">Continuous Corner Rounding</h1>
+<div class="fallback-error-message">Houdini API not available, falling back to border-radius</div>
 <div class="container">
     <div class="demo-item">
         <div class="rectangle" style="border-radius: 50px">
@@ -153,10 +164,10 @@
         /* Example to use the library within CSS classes */
 
         .my__class {
-        /* your other class styles go here */
-        /* the .continuous-rounding class must be attached to the element, too */
-        --continuous-rounding-top-left: 50px;
-        --continuous-rounding-bottom-left: 50px;
+            /* your other class styles go here */
+            /* the .continuous-rounding class must be attached to the element, too */
+            --continuous-rounding-top-left: 50px;
+            --continuous-rounding-bottom-left: 50px;
         }
     </style>
 

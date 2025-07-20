@@ -36,3 +36,10 @@
     mask-size: 100% 100%;
     mask-repeat: no-repeat;
 }
+
+/* mask OFF in fallback mode — JS adds the class */
+html.continuous-rounding--fallback .continuous-rounding,
+html.continuous-rounding--fallback *[style*="--continuous-rounding"]{
+  -webkit-mask-image:none;
+          mask-image:none;
+}

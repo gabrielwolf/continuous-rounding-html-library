@@ -1,19 +1,30 @@
 # Continuous Corner Radius Library
 
 This library provides SwiftUI-style continuous corner radius effects for the web.
+It has a fallback to border-radius included.
+
 
 ## Quick Start
 
 1. Copy these files to your project:
    - `continuous-corner.js`
+   - `continuous-corner.loader.js`
    - `continuous-rounding.css`
 
 2. Link the CSS in your HTML:
+
 ```html
+
 <link rel="stylesheet" href="continuous-rounding.css">
 ```
 
-3. Register the worklet in your HTML:
+3. Load the script, with fallback included
+```html
+<script type="module" src="continuous-corner.loader.js"></script>
+```
+
+*OR* register the worklet directly in your HTML.
+
 ```html
 <script>
     if ('paintWorklet' in CSS) {
@@ -21,6 +32,7 @@ This library provides SwiftUI-style continuous corner radius effects for the web
     }
 </script>
 ```
+
 
 ## Usage
 
