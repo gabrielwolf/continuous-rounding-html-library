@@ -4,8 +4,9 @@
  *   and puts .continuous-rounding--fallback on <html> for styling error messages
  */
 
+
 (function () {
-  const WORKLET = new URL('./continuous-corner.js', import.meta.url).href;
+  const WORKLET = new URL('./continuous-corner.worklet.js', import.meta.url).href;
   const root = document.documentElement;
   const SEL = '.continuous-rounding,[style*="--continuous-rounding"]';
   const CORNERS = [
