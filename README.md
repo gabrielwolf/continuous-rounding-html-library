@@ -7,14 +7,13 @@ It has a fallback to border-radius included.
 ## Quick Start
 
 1. Copy these files to your project:
-   - `continuous-corner.js`
+   - `continuous-corner.worklet.js`
    - `continuous-corner.loader.js`
    - `continuous-rounding.css`
 
 2. Link the CSS in your HTML:
 
 ```html
-
 <link rel="stylesheet" href="continuous-rounding.css">
 ```
 
@@ -53,7 +52,6 @@ Modern versions of Chrome, Edge, and Opera are supported.
 ## Examples
 
 ```html
-
 <div class="my-box" style="--continuous-rounding: 75px">
     This box will have smooth continuous corners
 </div>
